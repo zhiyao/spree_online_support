@@ -1,6 +1,9 @@
 module Spree
   module Admin
-    class OnlineSupportSettingsController < ResourceController
+    class OnlineSupportSettingsController < Spree::Admin::BaseController
+      def show
+
+      end
       def update
         preferences = params[:preferences]
         enable_online_support = preferences[:enabled].nil? ? false : true;
@@ -9,7 +12,7 @@ module Spree
 
         respond_to do |format|
           format.html {
-            redirect_to admin_online_support_settings_path
+            redirect_to admin_online_support_setting_path
           }
         end
       end

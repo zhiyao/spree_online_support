@@ -1,23 +1,23 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <% content_for :page_title do %>
-  <%= t("online_support") %>
+  <%= Spree.t("online_support") %>
 <% end %>
 
-<%= form_tag(admin_online_support_settings_path, :method => :put) do %>
+<%= form_tag(admin_online_support_setting_path, :method => :put) do %>
   <fieldset class="no-border-top">
     <div class="field">
-    	<%= label_tag 'preferences[enabled]', t('enable_online_support') %>:
+    	<%= label_tag 'preferences[enabled]', Spree.t('enable_online_support') %>:
     	<%= check_box_tag('preferences[enabled]', '1', Spree::OnlineSupport::Config[:enabled]) %>
     </div>
     <div class="field">
-    	<%= label_tag 'preferences[zopim_key]', "Zopim.com" + t('auth_key') %>:
+    	<%= label_tag 'preferences[zopim_key]', "Zopim.com" + Spree.t('auth_key') %>:
     	<%= text_field_tag('preferences[zopim_key]', Spree::OnlineSupport::Config[:zopim_key])%>
     </div>
     <div class="form-buttons filter-actions">
-      <%= button t('update'), 'icon-refresh' %>
-      <span class="or"><%= t(:or) %></span>
-      <%= button_link_to t(:cancel), admin_online_support_settings_url, :icon => 'icon-remove' %>
+      <%= button Spree.t('update'), 'icon-refresh' %>
+      <span class="or"><%= Spree.t(:or) %></span>
+      <%= button_link_to Spree.t(:cancel), admin_online_support_setting_url, :icon => 'icon-remove' %>
     </div>
   </fieldset>
 <% end %>
